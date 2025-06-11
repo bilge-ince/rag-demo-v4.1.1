@@ -16,8 +16,8 @@ An application to demonstrate how to create a Retrieval-Augmented Generation (RA
 1. Clone the repository:
 
   ```sh
-  git clone git@github.com:EnterpriseDB/rag-demo-v2.2.1.git
-  cd rag-demo-v2.2.1
+  git clone git@github.com:EnterpriseDB/rag-demo-v4.1.1.git
+  cd rag-demo-v4.1.1
   ```
 
 2. Set up a virtual environment and install dependencies:
