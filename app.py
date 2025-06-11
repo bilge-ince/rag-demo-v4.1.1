@@ -3,11 +3,8 @@ import argparse
 from enum import Enum
 from dotenv import load_dotenv
 import os
-import torch
 
 from db import get_connection
-
-from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
 
 from commands.chat import chat
 from commands.create_db import create_db
@@ -55,7 +52,7 @@ def main():
         if hasattr(args, "func"):
                 aidb_model_name = "llama"
                 operation_type = "completions"
-                model_full_name = "meta/llama-3.3-70b-instruct"
+                model_full_name = "llama3.2-vision"
                 url="http://host.docker.internal:11434/v1/chat/completions"
                 conn = get_connection()
                 with conn.cursor() as cur:

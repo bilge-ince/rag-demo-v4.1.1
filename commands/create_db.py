@@ -21,7 +21,7 @@ def create_db(args):
         print("Database created.")
 
     conn.close()
-    # db_config["dbname"] = os.getenv("DB_NAME")
+
     conn = get_connection()
     print("Connection is successful!")
     conn.autocommit = True
