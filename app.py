@@ -47,18 +47,16 @@ def main():
 
     # chat command
     chat_parser = subparsers.add_parser(Command.CHAT.value, help="Use chat feature")
-    chat_parser.add_argument("retriever_name", type=str, help="Specify the retriever name")
     chat_parser.set_defaults(func=chat)
 
     args = parser.parse_args()
 
     if args.command == Command.CHAT.value:
         if hasattr(args, "func"):
-                model_provider = "nvidia"
-                aidb_model_name = "nim_llama"
-                operation_type = "nim_completions"
+                aidb_model_name = "llama"
+                operation_type = "completions"
                 model_full_name = "meta/llama-3.3-70b-instruct"
-                url="http://llama-3-3-70b-instruct-g6e-12xl-predictor.default.svc.cluster.local/v1/chat/completions"
+                url="http://host.docker.internal:11434/v1/chat/completions"
                 conn = get_connection()
                 with conn.cursor() as cur:
                     # ollama is running in my local and the aidb is installed in the docker env.
@@ -66,7 +64,7 @@ def main():
                     cur.execute(f"""select aidb.create_model('{aidb_model_name}', '{operation_type}', '{{"model":"{model_full_name}", "url":"{url}"}}'::JSONB);""")
                 conn.commit()
                 conn.close()
-                args.func(args, model_provider, aidb_model_name)
+                args.func(args, aidb_model_name)
     elif (
         (args.command == Command.IMPORT_DATA_S3.value)
         or (args.command == Command.CREATE_DB.value)

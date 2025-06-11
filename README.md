@@ -62,13 +62,13 @@ Prepare the database and create the preparer, retriever, and embeddings:
 2. Usage:
 
   ```sh
-  python app.py [-h] {create-db, import-data-s3, chat} {preparer_retriever_name}
+  python app.py [-h] {create-db, import-data-s3, chat}
   ```
 
 3. Example: Import data from an object storage source (e.g., S3 bucket):
 
   ```sh
-  python app.py import-data-s3 preparer_retriever_name
+  python app.py import-data-s3
   ```
 
 #### Chat Phase
@@ -84,13 +84,7 @@ Use the chat functionality to interact with the RAG system:
 2. Usage with Hugging Face Generative Models (requires a CUDA environment) or Ollama Models (runs on CPU, ensure the model is pulled and running):
 
   ```sh
-  streamlit run app.py chat {retriever_name}
-  ```
-
-3. Usage with OpenAI (runs on CPU in any environment):
-
-  ```sh
-  streamlit run app_openai.py chat {retriever_name}
+  streamlit run app.py chat
   ```
 
 ## Application Description
