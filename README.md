@@ -1,16 +1,15 @@
 # aidb-rag
 
-An application to demonstrate how to create a Retrieval-Augmented Generation (RAG) system using `EDB's aidb extension v2.2.1` and `PostgreSQL v16`. The chat console below showcases the features of a RAG system designed to answer questions specifically about EDB Bloggers. The biographies have been collected from EDB’s website. The system can seamlessly work with HTML files stored in a volume, such as object storage, with aidb managing the content from these sources using a preparer. Once a new file is added to the volume, aidb automates the process by integrating the new information into the pipeline, enabling the RAG to provide up-to-date answers. If no relevant data is available, the system will respond with: "I'm sorry, I couldn't find any information about this person."
+An application to demonstrate how to create a Retrieval-Augmented Generation (RAG) system using `EDB's aidb extension v4.1.1` and `PostgreSQL v16+`. The chat console below showcases the features of a RAG system designed to answer questions specifically about EDB Bloggers. The biographies have been collected from EDB’s website. The system can seamlessly work with HTML files stored in a volume, such as object storage, with aidb managing the content from these sources using a preparer. Once a new file is added to the volume, aidb automates the process by integrating the new information into the pipeline, enabling the RAG to provide up-to-date answers. If no relevant data is available, the system will respond with: "I'm sorry, I couldn't find any information about this person."
 
 ![Sample Chat Console Output](/imgs/gui.png)
 
 ## Requirements
 
 - Python 3
-- PostgreSQL v16
-- aidb v2.2.1
-- pgfs v1.0.6
-- ollama
+- PostgreSQL v16+
+- aidb v4.1.1
+- pgfs v2.0.1+
 
 ## Installation
 
@@ -42,8 +41,8 @@ An application to demonstrate how to create a Retrieval-Augmented Generation (RA
 Connect to your PostgreSQL environment using the `psql` terminal and verify the connection:
 
 ```sh
-psql -U edb_uname -h p-xxx -p port_number -d edb_db
-Password for user edb_uname:
+psql -U uname -h p-xxx -p port_number -d edb_db
+Password for user uname:
 ```
 
 ### Application Workflow
